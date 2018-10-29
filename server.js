@@ -8,7 +8,10 @@ const db = require("./config/keys").mongoURI;
 
 async function connectToDatabase() {
     try {
-        await mongoose.connect(db);
+        await mongoose.connect(
+            db,
+            { useNewUrlParser: true }
+        );
         console.log("MongoDB Connected");
     } catch (err) {
         console.error(err);
